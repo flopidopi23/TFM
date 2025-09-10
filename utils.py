@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import pandas as pd
 import matplotlib.pylab as plt
-from sklearn.metrics import mean_absolute_error, root_mean_squared_error
+from sklearn.metrics import root_mean_squared_error,mean_absolute_percentage_error
 from sklearn.preprocessing import MinMaxScaler
 
 """This script contains utility functions for data processing and evaluation metrics.
@@ -17,7 +17,7 @@ def eval_metrics(y_true, y_pred):
         return np.nan, np.nan
     y_clean = y_true[mask]
     y_pred_clean = y_pred[mask]
-    mae = mean_absolute_error(y_clean, y_pred_clean)
+    mae = mean_absolute_percentage_error(y_clean, y_pred_clean)
     rmse = root_mean_squared_error(y_clean, y_pred_clean)
     return mae, rmse
 
